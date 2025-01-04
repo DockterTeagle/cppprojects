@@ -75,6 +75,7 @@
                 gdb
                 vcpkg
                 vcpkg-tool
+                openssl
               ];
             };
           };
