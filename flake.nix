@@ -5,6 +5,7 @@
     nixd.url = "github:nix-community/nixd";
     rustacean.url = "github:mrcjkb/rustaceanvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
   };
   outputs =
     inputs@{
@@ -21,6 +22,7 @@
         {
           inputs',
           pkgs,
+          self',
           system,
           ...
         }:
@@ -51,6 +53,7 @@
                 '';
               packages = with pkgs; [
                 inputs'.rustacean.packages.codelldb
+                self'.checks.pre-commit-check.enabledPackages
                 # inputs'.nixd.packages.nixd
                 valgrind
                 libcxx
