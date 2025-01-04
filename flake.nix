@@ -21,9 +21,20 @@
         {
           inputs',
           pkgs,
+          system,
           ...
         }:
         {
+          checks = {
+            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                nixfmt-rfc-style.enable = true;
+                clang-format.enable = true;
+                clang-tidy.enable = true;
+              };
+            };
+          };
           devShells = {
             default = pkgs.mkShell {
               stdenv = pkgs.clandStdenv;
