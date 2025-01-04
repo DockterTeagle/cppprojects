@@ -42,6 +42,7 @@
               stdenv = pkgs.clandStdenv;
               shellHook = # bash
                 ''
+                  ${self'.checks.pre-commit-check.shellHook}
                   export LIBCXX_INCLUDE_PATH=${pkgs.libcxx.dev}/include/c++/v1
                   export LIBCXX_LIB_PATH=${pkgs.libcxx.out}/lib
                   export CODELLDB_PATH=${inputs'.rustacean.packages.codelldb}
