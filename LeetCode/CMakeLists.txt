@@ -7,9 +7,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS
     ON
     CACHE INTERNAL "")
 
-file(GLOB SOLVED_SRC "solved/**/*.cpp")
-file(GLOB UNSOLVED_SRC "unsolved/**/*.cpp")
-
+file(GLOB SOLVED_SRC "src/solved/**/*.cpp")
+file(GLOB UNSOLVED_SRC "src/unsolved/**/*.cpp")
+#
 add_executable(solved_exe ${SOLVED_SRC})
 add_executable(unsolved_exe ${UNSOLVED_SRC})
 
