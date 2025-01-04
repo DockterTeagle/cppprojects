@@ -7,15 +7,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS
     ON
     CACHE INTERNAL "")
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
 file(GLOB SOLVED_SRC "src/solved/**/*.cpp")
 file(GLOB UNSOLVED_SRC "src/unsolved/**/*.cpp")
-#
 add_executable(solved_exe ${SOLVED_SRC})
 add_executable(unsolved_exe ${UNSOLVED_SRC})
 
 # Include paths or libraries (optional)
-include_directories(${CMAKE_SOURCE_DIR}/include)
-if(CMAKE_EXPORT_COMPILE_COMMANDS)
-  set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES
-      ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})
-endif()
+target_include_directories(solved_exe PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(unsolved_exe PRIVATE ${CMAKE_SOURCE_DIR}/include)
