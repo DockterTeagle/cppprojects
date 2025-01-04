@@ -1,3 +1,3 @@
 **/.direnv/**
 **/build/**
-./.pre-commit-config.yaml
+/.pre-commit-config.yaml
